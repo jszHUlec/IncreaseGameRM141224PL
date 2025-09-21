@@ -1,6 +1,10 @@
 package com.hackeru.increasegamerm141224pl;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,6 +13,10 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
+
+    EditText userName;
+    Button playButton;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,5 +28,16 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        userName = findViewById(R.id.userName);
+        playButton = findViewById(R.id.playButton);
+
+        playButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), "Czesc "+userName.getText().toString(), Toast.LENGTH_LONG).show();
+            }
+        });
+
     }
 }
