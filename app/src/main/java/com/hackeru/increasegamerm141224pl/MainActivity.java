@@ -1,10 +1,10 @@
 package com.hackeru.increasegamerm141224pl;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -35,9 +35,12 @@ public class MainActivity extends AppCompatActivity {
         playButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "Czesc "+userName.getText().toString(), Toast.LENGTH_LONG).show();
+
+                Intent intent = new Intent(MainActivity.this, GameActivity.class);
+                intent.putExtra("USER_NAME", userName.getText().toString());
+                startActivity(intent);
+
             }
         });
-
     }
 }
