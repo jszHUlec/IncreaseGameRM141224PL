@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.IncreaseGameRM141224PL">
         <activity
+            android:name=".FinishActivity"
+            android:exported="false" />
+        <activity
             android:name=".GameActivity"
             android:exported="false" />
         <activity

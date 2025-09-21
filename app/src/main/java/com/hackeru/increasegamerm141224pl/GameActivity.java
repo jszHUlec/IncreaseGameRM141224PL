@@ -1,5 +1,6 @@
 package com.hackeru.increasegamerm141224pl;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -44,14 +45,18 @@ public class GameActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 int score = Integer.parseInt(number.getText().toString());
-                score++; // score = score + 1;
-                number.setText(String.valueOf(score));
 
-                if (score >= 10) {
+                if(score < 10) {
+                    score++; // score = score + 1;
+                    number.setText(String.valueOf(score));
+                }
+                if (score > 10) {
                     Toast.makeText(getApplicationContext(), "You win!", Toast.LENGTH_LONG).show();
+
+                    Intent intent = new Intent(GameActivity.this, FinishActivity.class);
+                    startActivity(intent);
                 }
             }
         });
-
     }
 }
