@@ -38,6 +38,11 @@ public class GameActivity extends AppCompatActivity {
 
         String userName = getIntent().getStringExtra("USER_NAME");
 
+        if( ! "JAKUB".equalsIgnoreCase(userName)) {
+            Toast.makeText(this, "Z takim imieniem to tu nie zagrasz!", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(GameActivity.this, MainActivity.class));
+        }
+
         title.setText("Hello " + userName + "!");
         number.setText("0");
 
